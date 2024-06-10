@@ -33,13 +33,13 @@ export default function RootLayout({
 					fontSans.variable
 				)}
 			>
-				<AuthProvider>
+				{/* <AuthProvider> */}
 						<div className="relative flex flex-col bg-black-800 text-white">
 							<main className="flex-grow">
 								{children}
 							</main>
 						</div>
-				</AuthProvider>
+				{/* </AuthProvider> */}
 			</body>
 		</html>
 	);
