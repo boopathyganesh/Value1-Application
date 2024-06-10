@@ -38,5 +38,7 @@ next-env.d.ts
 
 #Diabling Auth
 
+/Backups
+/Backups/*
 /app/api
 middleware.js
