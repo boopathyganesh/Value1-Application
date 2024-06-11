@@ -77,7 +77,7 @@ export default function Testimonials() {
 
   return (
     <section>
-      <div className="mx-auto max-w-screen-xl px-4 py-4 md:px-6 lg:px-8 lg:py-16">
+      <div className="mx-auto max-w-xs sm:max-w-sm md:max-w-screen-xl w-full px-4 py-4 md:px-6 lg:px-8 lg:py-16">
         <h2 className="text-center text-4xl font-bold tracking-tight text-gold-500 md:text-5xl">
           Read trusted reviews from our customers
         </h2>

@@ -72,4 +72,60 @@ export const brand = [
         rating: 4.5,
         imageUrl: "https://inrdeals.sgp1.cdn.digitaloceanspaces.com/production/393546/setu-logo.png"
     },
+    {
+        title: "EYE MY EYE",
+        price: 999,
+        content: "15.25%",
+        rating: 4.5,
+        imageUrl: "https://inrdeals.sgp1.cdn.digitaloceanspaces.com/production/341759/amazon-.in-logo-400-x-200.png"
+    },
+    {
+        title: "EYE MY EYE",
+        price: 999,
+        content: "15.25%",
+        rating: 4.5,
+        imageUrl: "https://inrdeals.sgp1.cdn.digitaloceanspaces.com/production/393546/setu-logo.png"
+    },
+    {
+        title: "EYE MY EYE",
+        price: 999,
+        content: "15.25%",
+        rating: 4.5,
+        imageUrl: "https://inrdeals.sgp1.cdn.digitaloceanspaces.com/production/341759/amazon-.in-logo-400-x-200.png"
+    },
+    {
+        title: "EYE MY EYE",
+        price: 999,
+        content: "15.25%",
+        rating: 4.5,
+        imageUrl: "https://inrdeals.sgp1.cdn.digitaloceanspaces.com/production/393546/setu-logo.png"
+    },
+    {
+        title: "EYE MY EYE",
+        price: 999,
+        content: "15.25%",
+        rating: 4.5,
+        imageUrl: "https://inrdeals.sgp1.cdn.digitaloceanspaces.com/production/341759/amazon-.in-logo-400-x-200.png"
+    },
+    {
+        title: "EYE MY EYE",
+        price: 999,
+        content: "15.25%",
+        rating: 4.5,
+        imageUrl: "https://inrdeals.sgp1.cdn.digitaloceanspaces.com/production/393546/setu-logo.png"
+    },
+    {
+        title: "EYE MY EYE",
+        price: 999,
+        content: "15.25%",
+        rating: 4.5,
+        imageUrl: "https://inrdeals.sgp1.cdn.digitaloceanspaces.com/production/341759/amazon-.in-logo-400-x-200.png"
+    },
+    {
+        title: "EYE MY EYE",
+        price: 999,
+        content: "15.25%",
+        rating: 4.5,
+        imageUrl: "https://inrdeals.sgp1.cdn.digitaloceanspaces.com/production/393546/setu-logo.png"
+    },
 ];

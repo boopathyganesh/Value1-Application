@@ -4,7 +4,6 @@ import React from 'react'
 import CustomCard from './ui/CustomCard'
 import { FaCheck } from "react-icons/fa6";
 import Image from 'next/image';
-//import { Tabs, Tab } from "@nextui-org/tabs";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 
@@ -41,13 +40,12 @@ const Finance = () => {
     ];
     return (
         <section className='w-full bg-black-600/80 py-14'>
-            <div className='max-w-8xl mx-auto bg-black-800 p-10 rounded-2xl'>
-                <div className='flex flex-col items-start justify-center gap-4'>
-                    <h2 className="ml-10 text-3xl font-bold">Finance</h2>
-                    {/* <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus blanditiis iure id aliquid quia aut placeat, ducimus vitae libero assumenda. Quod nesciunt, ex soluta blanditiis expedita officiis voluptas obcaecati itaque.</p> */}
+            <div className='max-w-sm md:max-w-8xl mx-auto bg-black-800 p-5 md:p-10 rounded-2xl'>
+                <div className='flex flex-col items-center md:items-start justify-center gap-4'>
+                    <h2 className="md:ml-10 text-3xl font-bold">Finance</h2>
                 </div>
-                <div className='max-w-7xl w-full mx-auto flex items-center justify-between my-16'>
-                    <div className='w-1/2 rounded-3xl overflow-hidden'>
+                <div className='max-w-sm md:max-w-7xl w-full mx-auto flex flex-col md:flex-row items-center justify-between my-10 md:my-16'>
+                    <div className='md:w-1/2 my-5 rounded-3xl overflow-hidden'>
                         <Image src={'/images/Asset-013.jpg'} alt={''} width={800} height={800} className='w-full h-auto' />
                     </div>
                     <div className='flex flex-col items-center justify-center gap-5'>
@@ -55,7 +53,7 @@ const Finance = () => {
                         <div className='flex flex-wrap items-center justify-center gap-5 max-w-2xl'>
                             <div className='flex items-center justify-start gap-3 w-64'>
                                 <span>
-                                    <FaCheck  className='text-3xl text-gold-500' />
+                                    <FaCheck className='text-3xl text-gold-500' />
                                 </span>
                                 <div className='flex flex-col items-start justify-center gap-2'>
                                     <h1 className='text-xl font-semibold'>Intensive Learning</h1>
@@ -64,7 +62,7 @@ const Finance = () => {
                             </div>
                             <div className='flex items-center justify-start gap-3 w-64'>
                                 <span>
-                                    <FaCheck  className='text-3xl text-gold-500' />
+                                    <FaCheck className='text-3xl text-gold-500' />
                                 </span>
                                 <div className='flex flex-col items-start justify-center gap-2'>
                                     <h1 className='text-xl font-semibold'>Intensive Learning</h1>
@@ -73,7 +71,7 @@ const Finance = () => {
                             </div>
                             <div className='flex items-center justify-start gap-3 w-64'>
                                 <span>
-                                    <FaCheck  className='text-3xl text-gold-500' />
+                                    <FaCheck className='text-3xl text-gold-500' />
                                 </span>
                                 <div className='flex flex-col items-start justify-center gap-2'>
                                     <h1 className='text-xl font-semibold'>Intensive Learning</h1>
@@ -82,7 +80,7 @@ const Finance = () => {
                             </div>
                             <div className='flex items-center justify-start gap-3 w-64'>
                                 <span>
-                                    <FaCheck  className='text-3xl text-gold-500' />
+                                    <FaCheck className='text-3xl text-gold-500' />
                                 </span>
                                 <div className='flex flex-col items-start justify-center gap-2'>
                                     <h1 className='text-xl font-semibold'>Intensive Learning</h1>
@@ -93,9 +91,9 @@ const Finance = () => {
                     </div>
                 </div>
                 <div className='mt-10'>
-                <div className="relative flex w-full flex-col">
-                        <Tabs defaultValue="loans" className="w-full">
-                            <TabsList className='ml-20'>
+                    <div className="relative flex w-full flex-col mb-5 md:mb-0">
+                        <Tabs defaultValue="loans" className="w-full flex flex-col items-center justify-center">
+                            <TabsList className='md:ml-20'>
                                 <TabsTrigger value="loans">Loans</TabsTrigger>
                                 <TabsTrigger value="insurance">Insurance</TabsTrigger>
                                 <TabsTrigger value="credit-cards">Credit Cards</TabsTrigger>
@@ -130,11 +128,10 @@ const Finance = () => {
                                 </div>
                             </TabsContent>
                         </Tabs>
-                        <button className='absolute top-0 right-5 bg-gold-500 px-3 py-2 rounded-2xl'>View More</button>
+                        <button className='absolute -bottom-8 lg:top-0 lg:bottom-auto right-5 bg-gold-500 px-3 py-2 rounded-2xl'>View More</button>
                     </div>
                 </div>
             </div>
-
         </section>
     )
 }

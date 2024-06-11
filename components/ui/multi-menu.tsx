@@ -6,6 +6,7 @@ import { FaAngleRight } from "react-icons/fa6";
 type MultiMenuProps = {
   parentBtn: string;
   Icon: React.ReactElement;
+  activeLink: string;
   child: {
     title: string;
     icon: IconType;
@@ -14,13 +15,13 @@ type MultiMenuProps = {
   sidebarSts: boolean;
 };
 
-const MultiMenu: React.FC<MultiMenuProps> = ({ Icon, parentBtn, child, sidebarSts }:MultiMenuProps) => {
+const MultiMenu: React.FC<MultiMenuProps> = ({ Icon, parentBtn, child, sidebarSts, activeLink }: MultiMenuProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const router = useRouter();
   const trigger = useRef<HTMLButtonElement>(null)
   const MenuNav = useRef<HTMLDivElement>(null)
 
-  const handleLinkClick = (link:string) => {
+  const handleLinkClick = (link: string) => {
     //setIsOpen(false);
     router.push(link)
   };
@@ -43,6 +44,14 @@ const MultiMenu: React.FC<MultiMenuProps> = ({ Icon, parentBtn, child, sidebarSt
     document.addEventListener('keydown', keyHandler)
     return () => document.removeEventListener('keydown', keyHandler)
   })
+
+  useEffect(() => {
+    if (child.some((item) => item.link === activeLink)) {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
+}, [child, activeLink]);
 
   return (
     <div className="relative">
@@ -73,13 +82,16 @@ const MultiMenu: React.FC<MultiMenuProps> = ({ Icon, parentBtn, child, sidebarSt
                 <li
                   key={index}
                   //onClick={handleLinkClick}
-                  className={`w-full flex text-black-800 text-md font-semibold items-center justify-center  ${sidebarSts ? 'bg-gold-200 px-3 py-2' : 'bg-white'} rounded-xl cursor-pointer`}
+                  className={`w-full flex text-black-800 text-md font-semibold items-center justify-center ${activeLink === item.link ? "bg-white" : "bg-gold-200"}  ${sidebarSts ? 'bg-gold-200 px-3 py-2' : 'bg-white'} rounded-xl cursor-pointer`}
                 >
-                  <button onClick={()=>handleLinkClick(item.link)} className="flex items-center justify-between w-full gap-3">
+                  <button onClick={() => handleLinkClick(item.link)} className="flex items-center justify-between w-full gap-3">
                     {sidebarSts && (
                       <div className="text-left">{item.title}</div>
                     )}
-                    <div className={`${sidebarSts ? 'bg-white p-2 rounded-xl text-gold-500' : 'bg-gold-500 p-2 rounded-xl text-white'}`}>
+                    <div className={`
+                        p-2 rounded-xl
+                        ${activeLink === item.link ? 'bg-gold-500 text-white' : 'bg-white text-gold-500'}
+                    `}>
                       {/* {React.cloneElement(item.Icon, { className: `w-5 h-5 ` })} */}
                       <item.icon className="w-5 h-5" />
                     </div>

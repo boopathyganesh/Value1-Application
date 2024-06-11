@@ -11,8 +11,10 @@ import React from 'react'
 
 const pages = () => {
   return (
-    <main className='max-w-full w-full flex flex-col items-center justify-center'>
-      <HeroSection />
+    <main className='max-w-sm md:max-w-full mx-auto w-full flex flex-col items-center justify-center overflow-hidden'>
+      <div className='w-full flex items-center justify-center px-5'>
+        <HeroSection />
+      </div>
       <OnlineDeals />
       <Travel />
       <Finance />
