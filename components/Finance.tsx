@@ -5,39 +5,18 @@ import CustomCard from './ui/CustomCard'
 import { FaCheck } from "react-icons/fa6";
 import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import AdCard from './ui/adCards';
+import { data } from '@/context/data';
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel"
 
 
 const Finance = () => {
-    const data = [
-        {
-            title: "Adobe Illustrator CC – Advanced Training Course",
-            price: 999,
-            content: "By Onecontributor in Design",
-            rating: 4.5,
-            imageUrl: "/images/card1.jpg"
-        },
-        {
-            title: "Adobe Illustrator CC – Advanced Training Course",
-            price: 999,
-            content: "By Onecontributor in Design",
-            rating: 4.5,
-            imageUrl: "/images/card2.jpg"
-        },
-        {
-            title: "Adobe Illustrator CC – Advanced Training Course",
-            price: 999,
-            content: "By Onecontributor in Design",
-            rating: 4.5,
-            imageUrl: "/images/card1.jpg"
-        },
-        {
-            title: "Adobe Illustrator CC – Advanced Training Course",
-            price: 999,
-            content: "By Onecontributor in Design",
-            rating: 4.5,
-            imageUrl: "/images/card2.jpg"
-        }
-    ];
     return (
         <section className='w-full bg-black-600/80 py-14'>
             <div className='max-w-sm md:max-w-8xl mx-auto bg-black-800 p-5 md:p-10 rounded-2xl'>
@@ -100,10 +79,23 @@ const Finance = () => {
                                 <TabsTrigger value="capital-market">Capital Market</TabsTrigger>
                             </TabsList>
                             <TabsContent value="loans">
-                                <div className='flex flex-wrap items-center justify-center gap-5 py-4'>
-                                    {data.map((card, index) => (
-                                        <CustomCard key={index} title={card.title} content={card.content} image={card.imageUrl} rating={card.rating} price={card.price} />
-                                    ))}
+                                <div className='flex-wrap items-center justify-center py-4'>
+                                    <Carousel>
+                                        <CarouselContent className='max-w-7xl flex px-4'>
+                                            {data.map((card, index) => (
+                                                <CarouselItem key={index} className='basis-1/3'>
+                                                    <AdCard key={index} title={card.title} content={card.content} image={card.imageUrl} rating={card.rating} price={card.price} />
+                                                </CarouselItem>
+                                            ))}
+                                            {data.map((card, index) => (
+                                                <CarouselItem key={index} className='basis-1/3'>
+                                                    <AdCard key={index} title={card.title} content={card.content} image={card.imageUrl} rating={card.rating} price={card.price} />
+                                                </CarouselItem>
+                                            ))}
+                                        </CarouselContent>
+                                        <CarouselPrevious className='bg-gold-300 text-black-800' />
+                                        <CarouselNext className='bg-gold-300 text-black-800' />
+                                    </Carousel>
                                 </div>
                             </TabsContent>
                             <TabsContent value="insurance">

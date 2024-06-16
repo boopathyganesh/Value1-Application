@@ -4,7 +4,7 @@ export const data = [
         price: 999,
         content: "By Onecontributor in Design",
         rating: 4.5,
-        imageUrl: "/images/card1.jpg"
+        imageUrl: "/images/test.jpg"
     },
     {
         title: "Adobe Illustrator CC – Advanced Training Course",

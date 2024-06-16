@@ -1,8 +1,13 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import {
+    InputOTP,
+    InputOTPGroup,
+    InputOTPSeparator,
+    InputOTPSlot,
+} from "@/components/ui/input-otp"
 import { Button } from "@/components/ui/button"
 import {
     Form,
@@ -15,20 +20,20 @@ import {
 } from "@/components/ui/form"
 
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
+import { useForm, Controller  } from "react-hook-form"
+import * as z from "zod"
 
 const formSchema = z.object({
-    name: z.string().min(2, {
-        message: "Username must be at least 2 characters.",
-    }),
-    email:z.string().email({
-        message: "Use a valid Email Address",
-    }),
-    contact:z.number().positive().max(10,{message:"Invalid Mobile Number"}).min(10,{message:"Invalid Mobile Number"}),
-})
+    name: z.string().nonempty("Name is required"),
+    email: z.string().email("Invalid email address"),
+    contact: z.string().min(10, "Contact number should be at least 10 digits"),
+    otp: z.string().length(6, "OTP should be 6 digits").optional(),  // Optional in the initial step
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 export const RegisterForm = () => {
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -44,22 +49,7 @@ export const RegisterForm = () => {
     return (
         <div>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} method='post' className="space-y-8">
-                    {/* <div className='p-4 text-white flex flex-col items-center justify-center gap-3'>
-                        <div className="grid w-full max-w-sm items-center gap-1.5">
-                            <Label htmlFor="name" className='text-md'>Organization&apos;s Name</Label>
-                            <Input type="name" id="name" placeholder="" />
-                        </div>
-                        <div className="grid w-full max-w-sm items-center gap-1.5">
-                            <Label htmlFor="email" className='text-md'>Organization&apos;s Email</Label>
-                            <Input type="email" id="email" placeholder="abc@gmail.com" />
-                        </div>
-                        <div className="grid w-full max-w-sm items-center gap-1.5">
-                            <Label htmlFor="Phone" className='text-md'>Official Contact No.</Label>
-                            <Input type="number" id="phone" placeholder="9xx6xx8xx0" />
-                        </div>
-                        <Button type='button' className='bg-gold-500 font-semibold'>Next</Button>
-                    </div> */}
+                <form onSubmit={form.handleSubmit(onSubmit)} method='post' className="space-y-4 w-full flex flex-col items-center justify-center">
                     <FormField
                         control={form.control}
                         name="name"
@@ -67,7 +57,7 @@ export const RegisterForm = () => {
                             <FormItem>
                                 <FormLabel>Your Name</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Enter your Full Name" {...field} />
+                                    <Input placeholder="Enter your Full Name" {...field} className='w-96' />
                                 </FormControl>
                                 <FormDescription>
                                     This name will be used as your public display name.
@@ -83,7 +73,7 @@ export const RegisterForm = () => {
                             <FormItem>
                                 <FormLabel>Email Address</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="abc@domain.com" {...field} />
+                                    <Input placeholder="abc@domain.com" {...field} className='w-96' />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -96,13 +86,13 @@ export const RegisterForm = () => {
                             <FormItem>
                                 <FormLabel>Contact Number</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="9**8**7**0" {...field} type='number' />
+                                    <Input placeholder="9**8**7**0" {...field} type='number' className='w-96' />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
                         )}
                     />
-                    <Button type="submit" className='bg-gold-500 font-semibold'>Submit</Button>
+                    <Button type="button" className='bg-gold-500 font-semibold w-max'>Next</Button>
                 </form>
             </Form>
         </div>
@@ -110,14 +100,27 @@ export const RegisterForm = () => {
 }
 
 export const CorporateRegisterForm = () => {
-    const form = useForm<z.infer<typeof formSchema>>({
+
+    const [slide, setSlide] = useState(false);
+
+    const form = useForm<FormData>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: "",
+            email: "",
+            contact: "",
+            otp: "",
         },
     })
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
+    async function onNext() {
+        const isValid = await form.trigger(["name", "email", "contact"]);
+        if (isValid) {
+            setSlide(true);
+        }
+    }
+
+    function onSubmit(values: FormData) {
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
         console.log(values)
@@ -126,24 +129,83 @@ export const CorporateRegisterForm = () => {
     return (
         <div>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                    <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Username</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="shadcn" {...field} />
-                                </FormControl>
-                                <FormDescription>
-                                    This is your public display name.
-                                </FormDescription>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <Button type="submit">Submit</Button>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8" method='post'>
+                    {!slide && (
+                        <>
+                            <Controller
+                                control={form.control}
+                                name="name"
+                                render={({ field,fieldState  }) => (
+                                    <FormItem>
+                                        <FormLabel>Organization&apos;s Name</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="Enter your Full Name" {...field} className='w-96' />
+                                        </FormControl>
+                                        <FormDescription>
+                                            This name will be used as your public display name.
+                                        </FormDescription>
+                                        {fieldState.error && <FormMessage>{fieldState.error.message}</FormMessage>}
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="email"
+                                render={({ field,fieldState }) => (
+                                    <FormItem>
+                                        <FormLabel>Organization&apos;s Email Address</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="abc@domain.com" {...field} className='w-96' />
+                                        </FormControl>
+                                        {fieldState.error && <FormMessage>{fieldState.error.message}</FormMessage>}
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="contact"
+                                render={({ field,fieldState }) => (
+                                    <FormItem>
+                                        <FormLabel>Official Contact Number</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="7**8**7**0" {...field} type='number' className='w-96' />
+                                        </FormControl>
+                                        {fieldState.error && <FormMessage>{fieldState.error.message}</FormMessage>}
+                                    </FormItem>
+                                )}
+                            />
+                            <Button type="button" onClick={() => onNext} className='bg-gold-500 font-semibold w-max'>Next</Button>
+                        </>
+                    )}
+                    {slide && (
+                        <div className="space-y-4">
+                            <FormField
+                                control={form.control}
+                                name="email"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Enter the OTP:</FormLabel>
+                                        <FormControl>
+                                            <div className='w-96 flex items-center justify-center py-4'>
+                                                <InputOTP maxLength={6}>
+                                                    <InputOTPGroup {...field}>
+                                                        <InputOTPSlot index={0} />
+                                                        <InputOTPSlot index={1} />
+                                                        <InputOTPSlot index={2} />
+                                                        <InputOTPSlot index={3} />
+                                                        <InputOTPSlot index={4} />
+                                                        <InputOTPSlot index={5} />
+                                                    </InputOTPGroup>
+                                                </InputOTP>
+                                            </div>
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <Button type="submit" className='bg-gold-500 font-semibold w-max'>verify</Button>
+                        </div>
+                    )}
                 </form>
             </Form>
         </div>
