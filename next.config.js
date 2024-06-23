@@ -7,6 +7,11 @@ const nextConfig = {
             hostname: 'inrdeals.sgp1.cdn.digitaloceanspaces.com',
             port: '',
           },
+          {
+            protocol: 'http',
+            hostname: 'thecodeplayer.com',
+            port: '',
+          },
         ],
       },
 }

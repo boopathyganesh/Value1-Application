@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 
-export const NavbarCustom = () => {
+const NavbarCustom = () => {
 	return (
 		<nav className="sticky top-0 z-50 flex items-center justify-between w-full py-5 px-20 bg-black-800">
 			<div className="w-32 mx-5">
@@ -25,3 +25,5 @@ export const NavbarCustom = () => {
 		</nav>
 	);
 };
+
+export default NavbarCustom;

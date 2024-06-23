@@ -1,4 +1,4 @@
-import { NavbarCustom } from "@/components/navbar";
+import NavbarCustom from "@/components/navbar";
 import ScrollToTop from "@/components/ui/Scroll2Top";
 import Footer from "@/components/ui/footer";
 

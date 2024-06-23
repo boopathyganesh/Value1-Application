@@ -1,10 +1,8 @@
 import "@/styles/globals.css";
-import { Metadata, Viewport } from "next";
+import { Metadata} from "next";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
-import clsx from "clsx";
 import { cn } from "@/lib/utils"
-import AuthProvider from "@/components/AuthProvider";
 
 export const metadata: Metadata = {
 	title: {
