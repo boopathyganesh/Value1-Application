@@ -1,69 +1,36 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-	name: "Value1",
+	name: "Value1 - World's Most Inclusive Enterprises",
 	description: "Make beautiful websites regardless of your design experience.",
 	navItems: [
 		{
-			label: "Home",
-			href: "/",
-		},
-    {
-      label: "Docs",
-      href: "/docs",
-    },
-    {
-      label: "Pricing",
-      href: "/pricing",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
-      href: "/about",
-    }
-	],
-	navMenuItems: [
-		{
-			label: "Profile",
-			href: "/profile",
+			name: "Home",
+			link: "/"
 		},
 		{
-			label: "Dashboard",
-			href: "/dashboard",
+			name: "Deals",
+			link: "/"
 		},
 		{
-			label: "Projects",
-			href: "/projects",
+			name: "Finance",
+			link: "/"
 		},
 		{
-			label: "Team",
-			href: "/team",
+			name: "Travel",
+			link: "/"
 		},
 		{
-			label: "Calendar",
-			href: "/calendar",
+			name: "Education",
+			link: "/"
 		},
 		{
-			label: "Settings",
-			href: "/settings",
+			name: "Value Brands",
+			link: "/"
 		},
 		{
-			label: "Help & Feedback",
-			href: "/help-feedback",
-		},
-		{
-			label: "Logout",
-			href: "/logout",
+			name: "Value Professionals",
+			link: "/"
 		},
 	],
-	links: {
-		github: "",
-		twitter: "",
-		docs: "",
-		discord: "",
-    	sponsor: ""
-	},
 };
