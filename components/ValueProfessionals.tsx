@@ -1,38 +1,24 @@
 import React from 'react'
-import CustomCard from './ui/CustomCard';
 import Image from 'next/image';
+import ProfessionalCard from './ui/ProfessionalCard';
+import { v_prof } from '@/context/data';
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel"
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
 
 const ValueProfessionals = () => {
-    const data = [
-        {
-            title: "Adobe Illustrator CC – Advanced Training Course",
-            price: 999,
-            content: "By Onecontributor in Design",
-            rating: 4.5,
-            imageUrl: "/images/card1.jpg"
-        },
-        {
-            title: "Adobe Illustrator CC – Advanced Training Course",
-            price: 999,
-            content: "By Onecontributor in Design",
-            rating: 4.5,
-            imageUrl: "/images/card2.jpg"
-        },
-        {
-            title: "Adobe Illustrator CC – Advanced Training Course",
-            price: 999,
-            content: "By Onecontributor in Design",
-            rating: 4.5,
-            imageUrl: "/images/card1.jpg"
-        },
-        {
-            title: "Adobe Illustrator CC – Advanced Training Course",
-            price: 999,
-            content: "By Onecontributor in Design",
-            rating: 4.5,
-            imageUrl: "/images/card2.jpg"
-        }
-    ];
+
     return (
         <section className='w-full bg-black py-2'>
             <div className='max-w-8xl mx-auto p-5 md:px-10 py-5 rounded-2xl'>
@@ -54,11 +40,42 @@ const ValueProfessionals = () => {
                     <div className='max-w-7xl mx-auto my-10 relative'>
                         <h1 className='text-2xl font-semibold mb-2'>Value Professionals</h1>
                         <div className='flex flex-wrap flex-col md:flex-row items-center justify-center gap-5 py-10'>
-                            {data.map((card, index) => (
-                                <CustomCard key={index} title={card.title} content={card.content} image={card.imageUrl} rating={card.rating} price={card.price} />
-                            ))}
+                            <Carousel>
+                                <CarouselContent className='max-w-7xl flex px-4'>
+                                    {v_prof.map((card, index) => (
+                                        <CarouselItem key={index} className='basis-1/4'>
+                                            <ProfessionalCard key={index} title={card.title} image={card.imageUrl} type='professional' />
+                                        </CarouselItem>
+                                    ))}
+                                </CarouselContent>
+                                <CarouselPrevious className='bg-gold-300 text-black-800' />
+                                <CarouselNext className='bg-gold-300 text-black-800' />
+                            </Carousel>
                         </div>
-                        <button className='absolute -bottom-5 lg:top-0 lg:bottom-auto right-10 bg-gold-500 px-3 py-2 rounded-2xl'>View More</button>
+                        <div className='absolute -bottom-5 lg:top-0 lg:bottom-auto right-10 flex items-center justify-center gap-5'>
+                            <Select>
+                                <SelectTrigger className="w-[180px]">
+                                    <SelectValue placeholder="Default(TN)" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="light">Tamil Nadu</SelectItem>
+                                    <SelectItem value="dark">Karnataka</SelectItem>
+                                    <SelectItem value="system">Kerala</SelectItem>
+                                </SelectContent>
+                            </Select>
+                            <Select>
+                                <SelectTrigger className="w-[180px]">
+                                    <SelectValue placeholder="Default(Chennai)" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="Chennai">Chennai</SelectItem>
+                                    <SelectItem value="Coimbatore">Coimbatore</SelectItem>
+                                    <SelectItem value="Madurai">Madurai</SelectItem>
+                                    <SelectItem value="Tiruchirappalli">Tiruchirappalli</SelectItem>
+                                    <SelectItem value="Tuticorin">Tuticorin</SelectItem>
+                                </SelectContent>
+                            </Select>
+                        </div>
                     </div>
                 </div>
             </div>

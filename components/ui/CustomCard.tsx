@@ -4,7 +4,7 @@ import React from 'react'
 
 interface CardProps {
     title: string;
-    content: string;
+    content?: string;
     image: string | StaticImageData;
     rating: number;
     price?: number;
@@ -18,7 +18,9 @@ const CustomCard = ({ title, content, image, rating, price }: CardProps) => {
             </div>
             <div className='flex flex-col items-start justify-center gap-1.5 text-black-800 p-5'>
                 <h1 className='text-lg font-medium'>{title}</h1>
-                <p className='text-gray-500 text-sm'>{content}</p>
+                {content && (
+                    <p className='text-gray-500 text-sm'>{content}</p>
+                )}
                 <span className='flex items-center justify-center'>
                     {[...Array(5)].map((_, i) => (
                         <svg
@@ -35,7 +37,9 @@ const CustomCard = ({ title, content, image, rating, price }: CardProps) => {
                     ))}
                     <span className='ml-1'>({rating}/5)</span>
                 </span>
-                <span className='font-bold text-lg'>{formatCurrency(price)}</span>
+                {price && (
+                    <span className='font-bold text-lg'>{formatCurrency(price)}</span>
+                )}
             </div>
         </div>
     )

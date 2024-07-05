@@ -1,7 +1,22 @@
 import React from 'react'
 import CustomCard from './ui/CustomCard'
 import Image from 'next/image';
-import { data } from '@/context/data';
+import { v_brands } from '@/context/data';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel"
+import ValueCard from './ui/ValueCards';
 
 const ValueBrands = () => {
     return (
@@ -25,11 +40,46 @@ const ValueBrands = () => {
                     <div className='max-w-7xl mx-auto my-10 relative'>
                         <h1 className='text-2xl font-semibold mb-2'>Value Brands</h1>
                         <div className='flex flex-wrap flex-col md:flex-row items-center justify-center gap-5 py-10'>
-                            {data.map((card, index) => (
-                                <CustomCard key={index} title={card.title} content={card.content} image={card.imageUrl} rating={card.rating} price={card.price} />
-                            ))}
+                            <Carousel>
+                                <CarouselContent className='max-w-7xl flex px-4'>
+                                    {v_brands.map((card, index) => (
+                                        <CarouselItem key={index} className='basis-1/4'>
+                                            <ValueCard key={index} title={card.title} image={card.imageUrl} type='brand' />
+                                        </CarouselItem>
+                                    ))}
+                                </CarouselContent>
+                                {v_brands.length > 4 && (
+                                    <>
+                                        <CarouselPrevious className='bg-gold-300 text-black-800' />
+                                        <CarouselNext className='bg-gold-300 text-black-800' />
+                                    </>
+                                )}
+                            </Carousel>
                         </div>
-                        <button className='absolute -bottom-5 lg:top-0 lg:bottom-auto right-10 bg-gold-500 px-3 py-2 rounded-2xl'>View More</button>
+                        <div className='absolute -bottom-5 lg:top-0 lg:bottom-auto right-10 flex items-center justify-center gap-5'>
+                            <Select>
+                                <SelectTrigger className="w-[180px]">
+                                    <SelectValue placeholder="Default(TN)" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="light">Tamil Nadu</SelectItem>
+                                    <SelectItem value="dark">Karnataka</SelectItem>
+                                    <SelectItem value="system">Kerala</SelectItem>
+                                </SelectContent>
+                            </Select>
+                            <Select>
+                                <SelectTrigger className="w-[180px]">
+                                    <SelectValue placeholder="Default(Chennai)" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="Chennai">Chennai</SelectItem>
+                                    <SelectItem value="Coimbatore">Coimbatore</SelectItem>
+                                    <SelectItem value="Madurai">Madurai</SelectItem>
+                                    <SelectItem value="Tiruchirappalli">Tiruchirappalli</SelectItem>
+                                    <SelectItem value="Tuticorin">Tuticorin</SelectItem>
+                                </SelectContent>
+                            </Select>
+                        </div>
                     </div>
                 </div>
             </div>

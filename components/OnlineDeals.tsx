@@ -13,11 +13,10 @@ const OnlineDeals = () => {
     const [activeTab, setActiveTab] = useState('top-brands'); // Initial active tab
     const router = useRouter();
     const handleViewMore = () => {
-        console.log(visibleItems)
-        if(visibleItems > 8 && activeTab === "trending-deals"){
+        if(visibleItems > 4 && activeTab === "trending-deals"){
             router.push("/reward-store/online-deals/trending-deals")
         }
-        else if(visibleItems > 8 && activeTab === "top-brands"){
+        else if(visibleItems > 4 && activeTab === "top-brands"){
             router.push("/reward-store/online-deals/top-stores")
         }
         else{

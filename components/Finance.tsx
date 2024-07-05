@@ -14,6 +14,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
+import FinanceCard from './ui/FinanceCards';
 
 
 const Finance = () => {
@@ -28,45 +29,9 @@ const Finance = () => {
                         <Image src={'/images/Asset-013.jpg'} alt={''} width={800} height={800} className='w-full h-auto' />
                     </div>
                     <div className='flex flex-col items-center justify-center gap-5'>
-                        <h1 className='text-2xl font-bold text-center'>Why Upskill becomes the best training course & bootcamp.</h1>
-                        <div className='flex flex-wrap items-center justify-center gap-5 max-w-2xl'>
-                            <div className='flex items-center justify-start gap-3 w-64'>
-                                <span>
-                                    <FaCheck className='text-3xl text-gold-500' />
-                                </span>
-                                <div className='flex flex-col items-start justify-center gap-2'>
-                                    <h1 className='text-xl font-semibold'>Intensive Learning</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-                                </div>
-                            </div>
-                            <div className='flex items-center justify-start gap-3 w-64'>
-                                <span>
-                                    <FaCheck className='text-3xl text-gold-500' />
-                                </span>
-                                <div className='flex flex-col items-start justify-center gap-2'>
-                                    <h1 className='text-xl font-semibold'>Intensive Learning</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-                                </div>
-                            </div>
-                            <div className='flex items-center justify-start gap-3 w-64'>
-                                <span>
-                                    <FaCheck className='text-3xl text-gold-500' />
-                                </span>
-                                <div className='flex flex-col items-start justify-center gap-2'>
-                                    <h1 className='text-xl font-semibold'>Intensive Learning</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-                                </div>
-                            </div>
-                            <div className='flex items-center justify-start gap-3 w-64'>
-                                <span>
-                                    <FaCheck className='text-3xl text-gold-500' />
-                                </span>
-                                <div className='flex flex-col items-start justify-center gap-2'>
-                                    <h1 className='text-xl font-semibold'>Intensive Learning</h1>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-                                </div>
-                            </div>
-                        </div>
+                        <h1 className='text-4xl font-bold text-center'>Unlock Exclusive Financial Perks and <span className='text-gold-300'>Gold Rewards!</span></h1>
+                        <h2 className='text-xl font-medium text-center'>Craft Wealth, Unleash Dreams, and Enjoy Top-tier Support!</h2>
+                        <button></button>
                     </div>
                 </div>
                 <div className='mt-10'>
@@ -83,13 +48,13 @@ const Finance = () => {
                                     <Carousel>
                                         <CarouselContent className='max-w-7xl flex px-4'>
                                             {data.map((card, index) => (
-                                                <CarouselItem key={index} className='basis-1/3'>
-                                                    <AdCard key={index} title={card.title} content={card.content} image={card.imageUrl} rating={card.rating} price={card.price} />
+                                                <CarouselItem key={index} className='basis-1/4'>
+                                                    <FinanceCard key={index} title={card.title} content={card.content} image={card.imageUrl} rating={card.rating} price={card.price} />
                                                 </CarouselItem>
                                             ))}
                                             {data.map((card, index) => (
-                                                <CarouselItem key={index} className='basis-1/3'>
-                                                    <AdCard key={index} title={card.title} content={card.content} image={card.imageUrl} rating={card.rating} price={card.price} />
+                                                <CarouselItem key={index} className='basis-1/4'>
+                                                    <FinanceCard key={index} title={card.title} content={card.content} image={card.imageUrl} rating={card.rating} price={card.price} />
                                                 </CarouselItem>
                                             ))}
                                         </CarouselContent>
@@ -101,21 +66,21 @@ const Finance = () => {
                             <TabsContent value="insurance">
                                 <div className='flex flex-wrap items-center justify-center gap-5 py-4'>
                                     {data.map((card, index) => (
-                                        <CustomCard key={index} title={card.title} content={card.content} image={card.imageUrl} rating={3} price={card.price} />
+                                        <FinanceCard key={index} title={card.title} content={card.content} image={card.imageUrl} rating={3} price={card.price} />
                                     ))}
                                 </div>
                             </TabsContent>
                             <TabsContent value="credit-cards">
                                 <div className='flex flex-wrap items-center justify-center gap-5 py-4'>
                                     {data.map((card, index) => (
-                                        <CustomCard key={index} title={card.title} content={card.content} image={card.imageUrl} rating={3} price={card.price} />
+                                        <FinanceCard key={index} title={card.title} content={card.content} image={card.imageUrl} rating={3} price={card.price} />
                                     ))}
                                 </div>
                             </TabsContent>
                             <TabsContent value="capital-market">
                                 <div className='flex flex-wrap items-center justify-center gap-5 py-4'>
                                     {data.map((card, index) => (
-                                        <CustomCard key={index} title={card.title} content={card.content} image={card.imageUrl} rating={3} price={card.price} />
+                                        <FinanceCard key={index} title={card.title} content={card.content} image={card.imageUrl} rating={3} price={card.price} />
                                     ))}
                                 </div>
                             </TabsContent>
