@@ -18,7 +18,6 @@ const NavbarCustom = () => {
 					))}
 				</ul>
 				<div className="flex items-center justify-center gap-5">
-					<Link className="font-medium px-5 py-3 bg-gold-300 rounded-2xl hover:scale-105 hover:bg-gold-500 smooth" href={"/corporate"}>Corporate</Link>
 					<Link className="font-medium px-5 py-3 bg-gold-300 rounded-2xl hover:scale-105 hover:bg-gold-500 smooth" href={"/login"}>Login</Link>
 				</div>
 			</nav>
