@@ -227,3 +227,26 @@ export const v_prof = [
         imageUrl: "/images/lawyer.jpg"
     },
 ];
+
+export const gold = [
+    {
+        title: "Digital Au/g",
+        imageUrl: "/images/gold-coin.jpg"
+    },
+    {
+        title: "Jewellery",
+        imageUrl: "/images/jewel.jpg"
+    },
+    {
+        title: "Gold SIP",
+        imageUrl: "/images/logo-big.png"
+    },
+    {
+        title: "Gold Lease",
+        imageUrl: "/images/logo-big.png"
+    },
+    {
+        title: "Gold Coins",
+        imageUrl: "/images/gold-coin.jpg"
+    },
+];
