@@ -1,7 +1,7 @@
 import React from 'react'
 import CustomCard from './ui/CustomCard'
 import Image from 'next/image';
-import { v_brands } from '@/context/data';
+import { overseas, v_brands } from '@/context/data';
 import {
     Select,
     SelectContent,
@@ -17,6 +17,7 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 import ValueCard from './ui/ValueCards';
+import OverseasCard from './ui/OverseasCard';
 
 const ValueBrands = () => {
     return (
@@ -42,9 +43,9 @@ const ValueBrands = () => {
                         <div className='flex flex-wrap flex-col md:flex-row items-center justify-center gap-5 py-10'>
                             <Carousel>
                                 <CarouselContent className='max-w-7xl flex px-4'>
-                                    {v_brands.map((card, index) => (
+                                    {overseas.map((card, index) => (
                                         <CarouselItem key={index} className='basis-1/4'>
-                                            <ValueCard key={index} title={card.title} image={card.imageUrl} type='brand' />
+                                            <OverseasCard key={index} title={card.title} image={card.imageUrl} />
                                         </CarouselItem>
                                     ))}
                                 </CarouselContent>
@@ -57,16 +58,6 @@ const ValueBrands = () => {
                             </Carousel>
                         </div>
                         <div className='absolute -bottom-5 lg:top-0 lg:bottom-auto right-10 flex items-center justify-center gap-5'>
-                            <Select>
-                                <SelectTrigger className="w-[180px]">
-                                    <SelectValue placeholder="Default(TN)" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectItem value="light">Tamil Nadu</SelectItem>
-                                    <SelectItem value="dark">Karnataka</SelectItem>
-                                    <SelectItem value="system">Kerala</SelectItem>
-                                </SelectContent>
-                            </Select>
                             <Select>
                                 <SelectTrigger className="w-[180px]">
                                     <SelectValue placeholder="Default(Chennai)" />

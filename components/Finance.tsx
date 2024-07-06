@@ -30,7 +30,7 @@ const Finance = () => {
                     </div>
                     <div className='flex flex-col items-center justify-center gap-5'>
                         <h1 className='text-4xl font-bold text-center'>Unlock Exclusive Financial Perks and <span className='text-gold-300'>Gold Rewards!</span></h1>
-                        <h2 className='text-xl font-medium text-center'>Craft Wealth, Unleash Dreams, and Enjoy Top-tier Support!</h2>
+                        <h2 className='text-2xl font-medium text-center'>Craft Wealth, Unleash Dreams, and Enjoy Top-tier Support!</h2>
                         <button></button>
                     </div>
                 </div>

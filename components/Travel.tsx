@@ -45,7 +45,7 @@ const Travel = () => {
                             <Image className='absolute bottom-0 right-0 md:left-0 w-48 md:w-64 pointer-events-none' src={'/images/Asset-28.png'} width={500} height={500} alt={''} />
                         </div>
                         <div className='flex flex-col items-center justify-center gap-3 md:gap-5'>
-                            <h1 className='text-center md:text-right text-4xl font-semibold text-black-800'>Planning for a Trip?</h1>
+                            <h1 className='text-center md:text-right text-4xl font-bold text-black-800'>Planning for a Trip?</h1>
                             <p className='text-2xl font-medium text-black'>Turn Every Trip into a <span className='font-bold text-white'>Golden Memories!</span></p>
                         </div>
                     </div>

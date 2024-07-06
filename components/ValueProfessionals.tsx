@@ -53,16 +53,7 @@ const ValueProfessionals = () => {
                             </Carousel>
                         </div>
                         <div className='absolute -bottom-5 lg:top-0 lg:bottom-auto right-10 flex items-center justify-center gap-5'>
-                            <Select>
-                                <SelectTrigger className="w-[180px]">
-                                    <SelectValue placeholder="Default(TN)" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectItem value="light">Tamil Nadu</SelectItem>
-                                    <SelectItem value="dark">Karnataka</SelectItem>
-                                    <SelectItem value="system">Kerala</SelectItem>
-                                </SelectContent>
-                            </Select>
+                            
                             <Select>
                                 <SelectTrigger className="w-[180px]">
                                     <SelectValue placeholder="Default(Chennai)" />

@@ -1,5 +1,6 @@
 import Education from '@/components/Education'
 import Finance from '@/components/Finance'
+import GoldStore from '@/components/GoldStore'
 import HeroSection from '@/components/HeroSection'
 import OnlineDeals from '@/components/OnlineDeals'
 import Travel from '@/components/Travel'
@@ -15,6 +16,7 @@ const pages = () => {
       <div className='w-full flex items-center justify-center px-5'>
         <HeroSection />
       </div>
+      <GoldStore />
       <OnlineDeals />
       <Travel />
       <Finance />
