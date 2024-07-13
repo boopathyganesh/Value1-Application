@@ -23,23 +23,29 @@ const menu = [
   {
     id: 2,
     title: "Online Deals",
-    subList:[
-      {
-        title:"Top Stores",
-        link:'/reward-store/online-deals/top-stores',
-        icon: LuStore,
-      },
-      {
-        title:"Trending Deals",
-        link:'/reward-store/online-deals/trending-deals',
-        icon: LuTrendingUp,
-      },
-    ],
-    icon: LuTags,
-    link: "/",
+    icon: LuStore,
+    link: "/reward-store/online-deals",
   },
+  // {
+  //   id: 3,
+  //   title: "Online Deals",
+  //   subList:[
+  //     {
+  //       title:"Top Stores",
+  //       link:'/reward-store/online-deals/top-stores',
+  //       icon: LuStore,
+  //     },
+  //     {
+  //       title:"Trending Deals",
+  //       link:'/reward-store/online-deals/trending-deals',
+  //       icon: LuTrendingUp,
+  //     },
+  //   ],
+  //   icon: LuTags,
+  //   link: "/",
+  // },
   {
-    id: 3,
+    id: 4,
     title: "Travel",
     subList:[
       {
@@ -57,7 +63,7 @@ const menu = [
     link: "/",
   },
   {
-    id: 4,
+    id: 5,
     title: "Financial Services",
     subList:[
       {
@@ -85,7 +91,7 @@ const menu = [
     link: "/",
   },
   {
-    id: 5,
+    id: 6,
     title: "Education",
     subList:[
       {
@@ -103,13 +109,13 @@ const menu = [
     link: "/",
   },
   {
-    id: 6,
+    id: 7,
     title: "Good Find Brands",
     icon: FaRegCreditCard,
     link: "/reward-store/value-brands",
   },
   {
-    id: 7,
+    id: 8,
     title: "Value Professionals",
     icon: FaRegCreditCard,
     link: "/reward-store/professionals",

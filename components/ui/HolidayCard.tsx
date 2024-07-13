@@ -12,12 +12,12 @@ interface CardProps {
 
 const HolidayCard = ({ title, content, image, rating, price }: CardProps) => {
     return (
-        <div className='flex flex-col items-center justify-between w-72 h-[350px] bg-white rounded-2xl overflow-hidden'>
+        <div className='flex flex-col items-center justify-between w-72 h-[350px] bg-white/10 text-white rounded-2xl overflow-hidden'>
             <div className='flex items-center justify-center h-full'>
                 <Image src={image} alt={title} width={800} height={800} className='h-full w-auto ' />
             </div>
-            <div className='flex flex-col items-start justify-center gap-1.5 text-black-800 p-5'>
-                <h1 className='text-lg font-medium'>{title}</h1>
+            <div className='flex flex-col items-start justify-center gap-1.5 p-5'>
+                <h1 className='text-lg font-medium text-gold-200'>{title}</h1>
                 <span className='flex items-center justify-center'>
                     {[...Array(5)].map((_, i) => (
                         <svg

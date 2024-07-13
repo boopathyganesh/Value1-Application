@@ -9,11 +9,11 @@ interface CardProps {
 
 const LanguageCard = ({ title, image, rating }: CardProps) => {
     return (
-        <div className='flex flex-col items-center justify-between w-72 h-[300px] bg-white rounded-2xl overflow-hidden'>
+        <div className='flex flex-col items-center justify-between w-72 h-[300px] bg-white/10 text-white rounded-2xl overflow-hidden'>
             <div className='flex items-center justify-center'>
                 <Image src={image} alt={title} width={800} height={800} className='w-72 h-auto' />
             </div>
-            <div className='flex flex-col items-start justify-start gap-2 text-black-800 p-3 w-full'>
+            <div className='flex flex-col items-start justify-start gap-2 p-3 w-full'>
                 <h1 className='text-lg font-medium'>{title}</h1>
                 <span className='flex items-center justify-center'>
                     {[...Array(5)].map((_, i) => (
@@ -31,7 +31,7 @@ const LanguageCard = ({ title, image, rating }: CardProps) => {
                     ))}
                     <span className='ml-1'>{rating}/5 (500)</span>
                 </span>
-                <button className='p-2 bg-gold-300 rounded-lg'>Apply Now!</button>
+                <button className='p-2 bg-gold-300 text-black rounded-lg'>Apply Now!</button>
             </div>
         </div>
     )

@@ -23,7 +23,7 @@ const GoldStore = () => {
                             <Carousel>
                                 <CarouselContent className='max-w-7xl flex px-4'>
                                     {gold.map((card, index) => (
-                                        <CarouselItem key={index} className='basis-1/3'>
+                                        <CarouselItem key={index} className='basis-1/4'>
                                             <GoldStoreCard key={index} title={card.title} image={card.imageUrl} />
                                         </CarouselItem>
                                     ))}

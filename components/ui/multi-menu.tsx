@@ -1,7 +1,9 @@
+import { setActiveLink } from "@/store/slices/activeLinkSlice";
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
 import { IconType } from "react-icons";
 import { FaAngleRight } from "react-icons/fa6";
+import { useDispatch } from "react-redux";
 
 type MultiMenuProps = {
   parentBtn: string;
@@ -20,10 +22,13 @@ const MultiMenu: React.FC<MultiMenuProps> = ({ Icon, parentBtn, child, sidebarSt
   const router = useRouter();
   const trigger = useRef<HTMLButtonElement>(null)
   const MenuNav = useRef<HTMLDivElement>(null)
+  const dispatch = useDispatch();
+
 
   const handleLinkClick = (link: string) => {
     //setIsOpen(false);
     router.push(link)
+    dispatch(setActiveLink(activeLink));
   };
   // close the mobile menu on click outside
   // useEffect(() => {

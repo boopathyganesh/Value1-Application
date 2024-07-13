@@ -1,8 +1,10 @@
 import "@/styles/globals.css";
-import { Metadata} from "next";
+import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { cn } from "@/lib/utils"
+import ReduxProvider from "./ReduxProvider";
+
 
 export const metadata: Metadata = {
 	title: {
@@ -31,11 +33,13 @@ export default function RootLayout({
 				)}
 			>
 				{/* <AuthProvider> */}
-						<div className="relative flex flex-col bg-black-800 text-white">
-							<main className="flex-grow">
-								{children}
-							</main>
-						</div>
+				<ReduxProvider>
+					<div className="relative flex flex-col bg-black-800 text-white">
+						<main className="flex-grow">
+							{children}
+						</main>
+					</div>
+				</ReduxProvider>
 				{/* </AuthProvider> */}
 			</body>
 		</html>
