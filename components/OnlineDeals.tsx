@@ -13,13 +13,13 @@ const OnlineDeals = () => {
     const [activeTab, setActiveTab] = useState('top-brands'); // Initial active tab
     const router = useRouter();
     const handleViewMore = () => {
-        if(visibleItems > 4 && activeTab === "trending-deals"){
+        if (visibleItems > 4 && activeTab === "trending-deals") {
             router.push("/reward-store/online-deals/trending-deals")
         }
-        else if(visibleItems > 4 && activeTab === "top-brands"){
+        else if (visibleItems > 4 && activeTab === "top-brands") {
             router.push("/reward-store/online-deals/top-stores")
         }
-        else{
+        else {
             setVisibleItems((prevVisibleItems) => prevVisibleItems + 4); // Show 4 more items on each click
         }
     };
@@ -41,45 +41,22 @@ const OnlineDeals = () => {
                 </div>
                 <div className='mt-10 mb-5 md:mb-0'>
                     <div className="relative flex w-full flex-col">
-                        <Tabs defaultValue="top-brands" className="w-full flex flex-col items-center justify-center">
-                            <TabsList className=''>
-                                <TabsTrigger value="top-brands" onClick={() => handleTabChange('top-brands')}>Top Brands</TabsTrigger>
-                                <TabsTrigger value="trending-deals" onClick={() => handleTabChange('trending-deals')}>Trending Deals</TabsTrigger>
-                            </TabsList>
-                            <TabsContent value="top-brands">
-                                <div className='flex flex-wrap items-center justify-center gap-5 py-4'>
-                                    {brand.slice(0, visibleItems).map((card, index) => (
-                                        <DealsCard
-                                            key={index}
-                                            title={card.title}
-                                            content={card.content}
-                                            image={card.imageUrl}
-                                            rating={card.rating}
-                                            price={card.price}
-                                        />
-                                    ))}
-                                </div>
-                            </TabsContent>
-                            <TabsContent value="trending-deals">
-                                <div className='flex flex-wrap items-center justify-center gap-5 py-4'>
-                                    {brand.slice(0, visibleItems).map((card, index) => (
-                                        <DealsCard
-                                            key={index}
-                                            title={card.title}
-                                            content={card.content}
-                                            image={card.imageUrl}
-                                            rating={3}
-                                            price={card.price}
-                                        />
-                                    ))}
-                                </div>
-                            </TabsContent>
-                        </Tabs>
+                        <div className='flex flex-wrap items-center justify-center gap-5 py-4'>
+                            {brand.slice(0, visibleItems).map((card, index) => (
+                                <DealsCard
+                                    key={card.id}
+                                    id={card.id}
+                                    title={card.title}
+                                    content={card.content}
+                                    image={card.imageUrl}
+                                />
+                            ))}
+                        </div>
                         {/* <button className='absolute -bottom-8 lg:top-0 lg:bottom-auto right-5 bg-gold-500 px-3 py-2 rounded-2xl'>View More</button> */}
                         {(activeTab === 'top-brands' && visibleItems < brand.length) || (activeTab === 'trending-deals' && visibleItems < brand.length) ? (
                             <button
                                 onClick={handleViewMore}
-                                className='absolute -bottom-8 lg:top-0 lg:bottom-auto right-5 bg-gold-500 px-3 py-2 rounded-2xl'
+                                className='absolute bottom-0 right-5 bg-gold-500 px-3 py-2 rounded-2xl'
                             >
                                 View More
                             </button>
