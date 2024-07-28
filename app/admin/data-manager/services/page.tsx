@@ -4,6 +4,7 @@ import CustomCheckbox from "@/components/AdminComponents/Categories/CustomCheckb
 import DeleteServices from "@/components/AdminComponents/Categories/DeleteService";
 import ModifyServices from "@/components/AdminComponents/Categories/ModifyServices";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useState } from "react";
 import {
 	Table,
 	TableBody,
@@ -54,7 +55,7 @@ const invoices = [
 	},
 ]
 
-import { useState } from "react";
+
 
 export default function Categories() {
 	const [isActive,setIsActive] = useState<boolean>();
