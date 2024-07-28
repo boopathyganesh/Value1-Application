@@ -121,7 +121,7 @@ export type Payment = {
 
 import { useState } from "react";
 
-const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<Payment>[] = [
 	{
 		id: "select",
 		header: ({ table }) => (
@@ -212,7 +212,7 @@ const columns: ColumnDef<Payment>[] = [
 	},
 ]
 
-export default function UploadData() {
+export function UploadData() {
 	const [sorting, setSorting] = React.useState<SortingState>([])
 	const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
 		[]
