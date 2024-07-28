@@ -121,7 +121,7 @@ export type Payment = {
 
 import { useState } from "react";
 
-export const columns: ColumnDef<Payment>[] = [
+const columns: ColumnDef<Payment>[] = [
 	{
 		id: "select",
 		header: ({ table }) => (
