@@ -22,7 +22,7 @@ const Finance = () => {
         <section className='w-full bg-black-600/80 py-14'>
             <div className='max-w-sm md:max-w-8xl mx-auto bg-black-800 p-5 md:p-10 rounded-2xl'>
                 <div className='flex flex-col items-center md:items-start justify-center gap-4'>
-                    <h2 className="md:ml-10 text-3xl font-bold">Finance</h2>
+                    <h2 className="md:ml-10 text-3xl font-bold">Financial Services</h2>
                 </div>
                 <div className='max-w-sm md:max-w-7xl w-full mx-auto flex flex-col md:flex-row items-center justify-between my-10 md:my-16'>
                     <div className='md:w-1/2 my-5 rounded-3xl overflow-hidden'>

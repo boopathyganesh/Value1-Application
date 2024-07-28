@@ -2,9 +2,10 @@ import Footer from "@/components/Footer";
 import MobileMenu from "@/components/mobile-menu";
 import Sidebar from "@/components/sidebar";
 import AppNavbar from "@/components/ui/navbar";
-import menu from "@/lib/menu";
+import adminMap from "@/lib/admin-map";
 
-export default function RewardLayout({
+
+export default function AdminLayout({
     children,
 }: {
     children: React.ReactNode;
@@ -12,7 +13,7 @@ export default function RewardLayout({
     return (
         <div className="max-w-full h-screen mx-auto flex items-center justify-center lg:gap-5 md:px-10 ">
             <div className="h-screen flex items-center">
-                <Sidebar menu={menu} />
+                <Sidebar menu={adminMap} />
             </div>
             <MobileMenu />
             <div className="hidden lg:flex h-full border-r-2 border-separate border-gold-300 border-dashed"></div>

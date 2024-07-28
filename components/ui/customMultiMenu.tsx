@@ -1,12 +1,12 @@
+import Image from 'next/image';
 import React, { useState, useEffect, useRef } from 'react'
-import { IconType } from 'react-icons';
 
 type MultiMenuProps = {
     parentBtn: string;
-    Icon: React.ReactElement;
+    Icon: string;
     child: {
         title: string;
-        icon: IconType;
+        icon: string;
         link: string;
     }[];
 };
@@ -43,7 +43,7 @@ const CustomMultiMenu: React.FC<MultiMenuProps> = ({ Icon, parentBtn, child }) =
             <button ref={trigger} onClick={() => setIsOpen(!isOpen)} className='group hover:bg-gold-300 rounded-2xl w-full'>
                 <div className='flex flex-col items-center justify-start gap-0.5'>
                     <div className="p-2 bg-gold-500/80 group-hover:bg-white rounded-xl smooth">
-                        {React.cloneElement(Icon, { className: `text-lg text-white group-hover:text-gold-500` })}
+                        <Image src={Icon} alt="" height={100} width={100} className={`text-lg text-white group-hover:text-gold-500`} />
                         {/* <Icon className="text-lg text-white group-hover:text-gold-500" /> */}
                     </div>
                     <div className='text-xs text-gold-500 group-hover:text-black-800'>{parentBtn}</div>
@@ -57,7 +57,7 @@ const CustomMultiMenu: React.FC<MultiMenuProps> = ({ Icon, parentBtn, child }) =
                                 <a href={item.link} className='flex flex-col items-center justify-center gap-0.5'>
                                     <div className="p-2 bg-gold-500/80 group-hover:bg-white rounded-xl smooth">
                                         {/* {React.cloneElement(item.Icon, { className: `text-lg text-white group-hover:text-gold-500` })} */}
-                                        <item.icon className="text-lg text-white group-hover:text-gold-500" />
+                                        <Image src={item.icon} alt="" height={100} width={100} className="text-lg text-white group-hover:text-gold-500" />
                                     </div>
                                     <div className='text-xs text-center text-gold-500 group-hover:text-black-800'>{item.title}</div>
                                 </a>

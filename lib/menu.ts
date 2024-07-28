@@ -1,29 +1,14 @@
-import {
-  LuLayoutDashboard,
-  LuTags,
-  LuStore,
-  LuTrendingUp,
-  LuBus,
-  LuPlaneTakeoff,
-  LuPalmtree,
- } from "react-icons/lu";
-
- import {
-  FaRegCreditCard,
-
- } from "react-icons/fa6";
-
 const menu = [
   {
     id: 1,
     title: "Dashboard",
-    icon: LuLayoutDashboard,
+    icon: "/images/admin/dashboard.svg",
     link: "/reward-store",
   },
   {
     id: 2,
     title: "Online Deals",
-    icon: LuStore,
+    icon: "/images/admin/dashboard.svg",
     link: "/reward-store/online-deals",
   },
   // {
@@ -51,15 +36,15 @@ const menu = [
       {
         title:"Bus",
         link:'/reward-store/travel/bus-booking',
-        icon: LuBus,
+        icon: "/images/admin/dashboard.svg",
       },
       {
         title:"Holiday",
         link:'/reward-store/travel/holiday',
-        icon: LuPalmtree,
+        icon: "/images/admin/dashboard.svg",
       },
     ],
-    icon: LuPlaneTakeoff,
+    icon: "/images/admin/dashboard.svg",
     link: "/",
   },
   {
@@ -69,25 +54,25 @@ const menu = [
       {
         title:"Loans",
         link:'/reward-store/finance/loans',
-        icon: FaRegCreditCard,
+        icon: "/images/admin/dashboard.svg",
       },
       {
         title:"Insurance",
         link:'/reward-store/finance/insurance',
-        icon: FaRegCreditCard,
+        icon: "/images/admin/dashboard.svg",
       },
       {
         title:"Credit Cards",
         link:'/reward-store/finance/credit-cards',
-        icon: FaRegCreditCard,
+        icon: "/images/admin/dashboard.svg",
       },
       {
         title:"Capital Market",
         link:'/reward-store/finance/capital-market',
-        icon: FaRegCreditCard,
+        icon: "/images/admin/dashboard.svg",
       },
     ],
-    icon: FaRegCreditCard,
+    icon: "/images/admin/dashboard.svg",
     link: "/",
   },
   {
@@ -97,27 +82,27 @@ const menu = [
       {
         title:"Overseas Education",
         link:'/reward-store/education/overseas',
-        icon: FaRegCreditCard,
+        icon: "/images/admin/dashboard.svg",
       },
       {
         title:"Language Classes",
         link:'/reward-store/education/language',
-        icon: FaRegCreditCard,
+        icon: "/images/admin/dashboard.svg",
       },
     ],
-    icon: FaRegCreditCard,
+    icon: "/images/admin/dashboard.svg",
     link: "/",
   },
   {
     id: 7,
     title: "Good Find Brands",
-    icon: FaRegCreditCard,
+    icon: "/images/admin/dashboard.svg",
     link: "/reward-store/value-brands",
   },
   {
     id: 8,
     title: "Value Professionals",
-    icon: FaRegCreditCard,
+    icon: "/images/admin/dashboard.svg",
     link: "/reward-store/professionals",
   },
 ];

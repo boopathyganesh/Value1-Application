@@ -55,12 +55,4 @@ export const sitemap = [
         link:"/reward-store/professionals",
         title:"Value Professionals"
     },
-    {
-        link:"/reward-store/online-deals/*",
-        title:"Online Deals"
-    },
-    // {
-    //     link:"/reward-store/online-deals/top-stores/*",
-    //     title:"Top Stores"
-    // }
 ];

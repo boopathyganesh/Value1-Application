@@ -1,17 +1,18 @@
 import { setActiveLink } from "@/store/slices/activeLinkSlice";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
 import { IconType } from "react-icons";
 import { FaAngleRight } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
+import Image from "next/image";
 
 type MultiMenuProps = {
   parentBtn: string;
-  Icon: React.ReactElement;
+  Icon: string;
   activeLink: string;
   child: {
     title: string;
-    icon: IconType;
+    icon: string;
     link: string
   }[];
   sidebarSts: boolean;
@@ -22,13 +23,11 @@ const MultiMenu: React.FC<MultiMenuProps> = ({ Icon, parentBtn, child, sidebarSt
   const router = useRouter();
   const trigger = useRef<HTMLButtonElement>(null)
   const MenuNav = useRef<HTMLDivElement>(null)
-  const dispatch = useDispatch();
 
 
   const handleLinkClick = (link: string) => {
     //setIsOpen(false);
     router.push(link)
-    dispatch(setActiveLink(activeLink));
   };
   // close the mobile menu on click outside
   // useEffect(() => {
@@ -56,7 +55,7 @@ const MultiMenu: React.FC<MultiMenuProps> = ({ Icon, parentBtn, child, sidebarSt
     } else {
       setIsOpen(false);
     }
-}, [child, activeLink]);
+  }, [child, activeLink]);
 
   return (
     <div className="relative">
@@ -75,7 +74,7 @@ const MultiMenu: React.FC<MultiMenuProps> = ({ Icon, parentBtn, child, sidebarSt
             </div>
             :
             <div className={`p-2 group-hover:bg-white rounded-xl ${isOpen ? 'bg-white' : 'bg-white/40'}`}>
-              {React.cloneElement(Icon, { className: `w-5 h-5 text-gold-500 smooth ${isOpen ? 'rotate-90' : ''}` })}
+              <Image src={Icon} alt="" height={100} width={100} className={`w-5 h-5 text-gold-500 smooth ${isOpen ? 'rotate-90' : ''}`} />
             </div>
         }
       </button>
@@ -86,19 +85,18 @@ const MultiMenu: React.FC<MultiMenuProps> = ({ Icon, parentBtn, child, sidebarSt
               {child.map((item, index) => (
                 <li
                   key={index}
-                  //onClick={handleLinkClick}
                   className={`w-full flex text-black-800 text-md font-semibold items-center justify-center ${activeLink === item.link ? "bg-white" : "bg-gold-200"}  ${sidebarSts ? 'bg-gold-200 px-3 py-2' : 'bg-white'} rounded-xl cursor-pointer`}
                 >
                   <button onClick={() => handleLinkClick(item.link)} className="flex items-center justify-between w-full gap-3">
                     {sidebarSts && (
                       <div className="text-left">{item.title}</div>
                     )}
+                    {/* ${activeLink === item.link ? 'bg-gold-500 text-white' : 'bg-white text-gold-500'} */}
                     <div className={`
                         p-2 rounded-xl
-                        ${activeLink === item.link ? 'bg-gold-500 text-white' : 'bg-white text-gold-500'}
+                        ${activeLink === item.link ? 'bg-black text-white' : 'bg-white text-gold-500'}
                     `}>
-                      {/* {React.cloneElement(item.Icon, { className: `w-5 h-5 ` })} */}
-                      <item.icon className="w-5 h-5" />
+                      <Image src={item.icon} alt="" height={100} width={100} className="w-5 h-5" />
                     </div>
                   </button>
                 </li>

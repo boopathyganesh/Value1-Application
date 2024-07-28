@@ -4,6 +4,7 @@ import React from 'react'
 import { LuLayoutDashboard } from "react-icons/lu";
 import CustomMultiMenu from './ui/customMultiMenu';
 import menu from '@/lib/menu';
+import Image from 'next/image';
 
 const MobileMenu = () => {
     const rewardSubMenu = [
@@ -24,7 +25,7 @@ const MobileMenu = () => {
                                 <li className='p-1.5 group hover:bg-gold-300 rounded-2xl h-24 w-20 flex items-start justify-center'>
                                     <Link href={item.link} className='flex flex-col items-center justify-center gap-0.5'>
                                         <div className="p-2 bg-gold-500/80 group-hover:bg-white rounded-xl smooth">
-                                            <item.icon className="text-lg text-white group-hover:text-gold-500" />
+                                            <Image src={item.icon} alt="" height={100} width={100} className="text-lg text-white group-hover:text-gold-500" />
                                         </div>
                                         <div className='text-xs text-center text-gold-500 group-hover:text-black-800'>{item.title}</div>
                                     </Link>
@@ -32,7 +33,7 @@ const MobileMenu = () => {
                             )}
                             {item.subList && (
                                 <li className='p-1.5 group hover:bg-gold-300 rounded-2xl h-24 w-20 flex items-start justify-center'>
-                                    <CustomMultiMenu parentBtn={item.title} Icon={<item.icon className="text-lg text-white group-hover:text-gold-500" />} child={item.subList} />
+                                    <CustomMultiMenu parentBtn={item.title} Icon={item.icon} child={item.subList} />
                                 </li>
                             )}
                         </React.Fragment>

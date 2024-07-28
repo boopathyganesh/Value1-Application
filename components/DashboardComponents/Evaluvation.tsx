@@ -12,6 +12,7 @@ import {
   Filler
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { ChartUI } from './eval';
 
 ChartJS.register(
   CategoryScale,
@@ -49,18 +50,18 @@ export const options = {
   scales: {
     x: {
       border: {
-        color: "black"
+        color: "white"
       },
       ticks: {
-        color: "black"
+        color: "white"
       }
     },
     y: {
       border: {
-        color: "black"
+        color: "white"
       },
       ticks: {
-        color: "black"
+        color: "white"
       },
       type: 'linear' as const,
       display: true,
@@ -101,11 +102,11 @@ export const data = {
 
 const Evaluation = () => {
   return (
-    <div className="flex flex-col items-center justify-center rounded-3xl w-full h-96 bg-white">
-      <h1 className='text-xl font-semibold'>Value1 Evaluation</h1>
-      <div className='w-max h-auto'>
+    <div className="flex flex-col items-center justify-start rounded-3xl w-1/3 h-[400px] bg-white/15 text-white overflow-hidden">
+      {/* <div className='w-max h-auto'>
         <Line options={options} data={data} height={320} width={500} />
-      </div>
+      </div> */}
+      <ChartUI />
     </div>
   )
 }

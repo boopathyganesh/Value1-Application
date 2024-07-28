@@ -56,7 +56,7 @@ const OnlineDeals = () => {
                         {(activeTab === 'top-brands' && visibleItems < brand.length) || (activeTab === 'trending-deals' && visibleItems < brand.length) ? (
                             <button
                                 onClick={handleViewMore}
-                                className='absolute bottom-0 right-5 bg-gold-500 px-3 py-2 rounded-2xl'
+                                className='absolute -bottom-8 right-5 bg-gold-500 px-3 py-2 rounded-2xl'
                             >
                                 View More
                             </button>
