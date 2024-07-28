@@ -72,46 +72,6 @@ const data: Payment[] = [
 	},
 ]
 
-
-const invoices = [
-	{
-		Service: "Test1",
-		SubService: ["SS1", "ss2", "ss3", "ss4", "ss5"],
-		State: true,
-		isDelete: false,
-	},
-	{
-		Service: "Test1",
-		SubService: ["Paid", "Paid", "Paid", "Paid", "Paid"],
-		State: true,
-		isDelete: false,
-	},
-	{
-		Service: "Test1",
-		SubService: ["Paid", "Paid", "Paid", "Paid", "Paid"],
-		State: true,
-		isDelete: false,
-	},
-	{
-		Service: "Test1",
-		SubService: ["Paid", "Paid", "Paid", "Paid", "Paid"],
-		State: true,
-		isDelete: false,
-	},
-	{
-		Service: "Test1",
-		SubService: ["Paid", "Paid", "Paid", "Paid", "Paid"],
-		State: false,
-		isDelete: false,
-	},
-	{
-		Service: "Test1",
-		SubService: ["Paid", "Paid", "Paid", "Paid", "Paid"],
-		State: true,
-		isDelete: false,
-	},
-]
-
 export type Payment = {
 	id: string
 	amount: number
@@ -119,9 +79,7 @@ export type Payment = {
 	email: string
 }
 
-import { useState } from "react";
-
-export const columns: ColumnDef<Payment>[] = [
+const columns: ColumnDef<Payment>[] = [
 	{
 		id: "select",
 		header: ({ table }) => (
@@ -212,7 +170,7 @@ export const columns: ColumnDef<Payment>[] = [
 	},
 ]
 
-export function UploadData() {
+export default function UploadData() {
 	const [sorting, setSorting] = React.useState<SortingState>([])
 	const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
 		[]
@@ -410,6 +368,5 @@ export function UploadData() {
 				</div>
 			</div>
 		</main>
-
 	)
 }
